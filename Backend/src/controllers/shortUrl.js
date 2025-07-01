@@ -4,7 +4,7 @@ export const generate_shortUrl=async (req,res)=>{
     const {longUrl}=req.body;
     let shortUrl=await create_shortUrl(longUrl);
     shortUrl = `http://localhost:3000/${shortUrl}`;
-    res.send(shortUrl);
+    res.status(200).json({shortUrl:shortUrl});
 }
 
 export const redirectshort_url= async (req,res)=>{
