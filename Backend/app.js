@@ -7,14 +7,16 @@ import {redirectshort_url} from './src/controllers/shortUrl.js';
 import auth_routes from './src/routes/auth_routes.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import { attachUser } from './src/utils/attachUser.js';
 
 const app=express();
 app.use(cors());
-app.use(cookieParser());
 
 const port=process.env.PORT || 4000
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+app.use(cookieParser());
+app.use(attachUser);
 
 // for generating short url using long url
 app.use("/api/v1",router);
