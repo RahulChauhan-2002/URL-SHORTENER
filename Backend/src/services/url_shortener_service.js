@@ -10,5 +10,5 @@ export const create_shortUrl = async (url) => {
     });
 
     await newUrl.save();
-    return shortUrl;
+    return shortUrl; 
 };

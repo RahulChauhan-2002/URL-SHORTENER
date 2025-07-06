@@ -5,10 +5,12 @@ import router from './src/routes/shorturlroute.js';
 import dbConnection from './src/config/mongoDB_config.js';
 import {redirectshort_url} from './src/controllers/shortUrl.js';
 import auth_routes from './src/routes/auth_routes.js';
+import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
 const app=express();
 app.use(cors());
+app.use(cookieParser());
 
 const port=process.env.PORT || 4000
 app.use(express.json());

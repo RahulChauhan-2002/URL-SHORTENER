@@ -3,7 +3,8 @@ import { signToken } from '../utils/helper.js';
 import bcrypt from 'bcrypt';
 
 export const registerUser = async (name, email, password) => {
-    const existingUser = await User.findOne({ email });
+    const normalizedEmail = email.trim().toLowerCase();
+    const existingUser = await User.findOne({ email: normalizedEmail });
     if (existingUser) {
         throw new Error("User already exists");
     }
@@ -17,7 +18,8 @@ export const registerUser = async (name, email, password) => {
 };
 
 export const loginUser = async (email, password) => {
-    const user = await User.findOne({ email });
+    const normalizedEmail = email.trim().toLowerCase();
+    const user = await User.findOne({ email: normalizedEmail });
     if (!user) {
         throw new Error("Invalid Credentials!");
     }
@@ -30,3 +32,4 @@ export const loginUser = async (email, password) => {
     const token = signToken({ id: user._id });
     return token;
 };
+
