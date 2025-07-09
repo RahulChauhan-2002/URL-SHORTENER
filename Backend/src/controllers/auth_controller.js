@@ -29,10 +29,11 @@ export const login = async (req, res) => {
     }
 
     try {
-        const token = await loginUser(email, password);
+        const {token,user} = await loginUser(email, password);
         return res.cookie("token", token, cookiesOption).status(200).json({
             success: true,
             message: "User logged in successfully",
+            user:user
         });
     } catch (error) {
         return res.status(401).json({

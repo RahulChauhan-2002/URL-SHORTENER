@@ -1,12 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { loginUser } from "../api/userApi";
 import { toast } from "react-toastify";
+import { useSelector, useDispatch } from "react-redux";
+import { login } from "../store/slice/authSlice.js";
+import {useNavigate} from '@tanstack/react-router';
 
 const LoginForm = ({ state }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const navigate=useNavigate();
+
+  // useEffect(() => {
+  //   if (auth.isAuthenticated) {
+  //     console.log(auth);
+  //   }
+  // }, [auth]);
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -14,6 +26,7 @@ const LoginForm = ({ state }) => {
 
     try {
       const data = await loginUser(email, password);
+      dispatch(login(data.user));
       setLoading(false);
       toast.success("Login successful!", {
         position: "top-center",
@@ -23,6 +36,7 @@ const LoginForm = ({ state }) => {
         pauseOnHover: true,
         draggable: true,
       });
+      navigate({to:"/dashboard"});
     } catch (err) {
       setLoading(false);
       toast.error("Something went wrong.");
