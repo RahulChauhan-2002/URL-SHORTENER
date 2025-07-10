@@ -7,3 +7,4 @@ export const authRoute = createRoute({
   path: '/auth',
   component: AuthPage,
 });
+
