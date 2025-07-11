@@ -12,7 +12,7 @@ import { attachUser } from './src/utils/attachUser.js';
 const app=express();
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://your-frontend.onrender.com" 
+  "https://url-shortener-1-laan.onrender.com" 
 ];
 
 app.use(cors({
