@@ -63,19 +63,19 @@ CLIENT_URL=http://localhost:3000
 
 ### 4. 🧠 Future Improvements
 
-- ** 📊 Click analytics (track number of times short URL was visited)**
+- 📊 Click analytics (track number of times short URL was visited)
 
-- ** 🕒 URL expiration**
+- 🕒 URL expiration
 
-- ** 🧑‍🎨 Custom alias for shortened URLs**
+- 🧑‍🎨 Custom alias for shortened URLs
 
-- ** 🌍 Branded domain support (e.g., https://rahul.ly/xyz123)**
+- 🌍 Branded domain support (e.g., https://rahul.ly/xyz123)
 
-- ** 🔐 Admin dashboard**
+- 🔐 Admin dashboard
 
 ```
 ```
-### 👨‍💻 Developed By Rahul Chauhan.
+## 👨‍💻 Developed By Rahul Chauhan.
 
 
 
