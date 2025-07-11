@@ -46,6 +46,7 @@ const UrlForm = () => {
                 {error}
             </div>
         )} */}
+
       {shortUrl && (
         <div className="mt-6">
           <h2 className="text-lg font-semibold mb-2">Your shortened URL:</h2>

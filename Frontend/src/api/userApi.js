@@ -20,3 +20,8 @@ export const logoutUser = async () => {
   const { data } = await axiosInstance.get("/api/v1/login");
   return data;
 };
+
+export const get_user = async () => {
+  const { data } = await axiosInstance.get("/api/v1/me");
+  return data;
+};
