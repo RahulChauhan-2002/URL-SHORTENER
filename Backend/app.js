@@ -11,7 +11,7 @@ import { attachUser } from './src/utils/attachUser.js';
 
 const app=express();
 const allowedOrigins = [
-  "https://url-shortener-1-98oq.onrender.com" 
+  "http://localhost:5173" 
 ];
 
 app.use(cors({
