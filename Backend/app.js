@@ -10,19 +10,13 @@ import cors from 'cors';
 import { attachUser } from './src/utils/attachUser.js';
 
 const app=express();
-const allowedOrigins = [
-  "http://localhost:5173" 
-];
-
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true
+  origin: [
+    "https://url-shortener-1-98oq.onrender.com"
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
 const port=process.env.PORT || 4000
